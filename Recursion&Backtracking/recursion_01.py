@@ -43,3 +43,23 @@ def is_sorted(nums):
     
 nums = [1, 2, 3, 4, 5]
 print(f"is sorted: {is_sorted(nums)}")
+
+
+def print_subsets(arr, index=0, current=[]):
+    # Base case: when we have considered all elements
+    if index == len(arr):
+        print(current)
+        return
+    
+    # Include the current element
+    print_subsets(arr, index + 1, current + [arr[index]])
+    
+    # Exclude the current element
+    print_subsets(arr, index + 1, current)
+
+
+# Example usage
+nums = [1, 2, 3]
+print("All subsets:")
+print_subsets(nums)
+
